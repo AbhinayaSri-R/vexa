@@ -1,0 +1,10 @@
+services:
+  sarvam-stt-proxy:
+    build: .
+    ports:
+      - "127.0.0.1:8090:8090"
+    environment:
+      SARVAM_API_KEY: ${SARVAM_API_KEY:?set SARVAM_API_KEY}
+      PROXY_TOKEN: ${PROXY_TOKEN:?set PROXY_TOKEN}
+      SARVAM_MODEL: ${SARVAM_MODEL:-saaras:v3}
+    restart: unless-stopped
